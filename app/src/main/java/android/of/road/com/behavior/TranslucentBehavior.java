@@ -28,7 +28,7 @@ public class TranslucentBehavior extends CoordinatorLayout.Behavior<Toolbar> {
     }
 
     /**
-     * 必须要加上  layout_anchor
+     * 必须要加上  layout_anchor，对方也要layout_collapseMode才能使用
      */
 
     @Override
@@ -36,7 +36,7 @@ public class TranslucentBehavior extends CoordinatorLayout.Behavior<Toolbar> {
 
         // 初始化高度
         if (mToolbarHeight == 0) {
-            mToolbarHeight = child.getBottom();
+            mToolbarHeight = child.getBottom() * 2;//为了更慢的
         }
         //
         //计算toolbar从开始移动到最后的百分比
@@ -49,7 +49,6 @@ public class TranslucentBehavior extends CoordinatorLayout.Behavior<Toolbar> {
 
         // 计算alpha通道值
         float alpha = percent * 255;
-
 
 
         //设置背景颜色

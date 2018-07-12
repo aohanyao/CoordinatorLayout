@@ -21,6 +21,7 @@
         </activity>
         <activity android:name=".TranslucentBehaviorActivity" />
         <activity android:name=".BehaviorOverlapTopActivity" />
+        <activity android:name=".TransferHeaderActivity" />
     </application>
 
 </manifest>
