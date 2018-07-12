@@ -15,9 +15,10 @@
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_scrollFlags="scroll|snap">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
             <ImageView
+                android:id="@+id/iv"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 android:scaleType="fitXY"
@@ -37,7 +38,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        app:layout_collapseMode="pin"
-        app:navigationIcon="@drawable/ic_arrow_back_black_24dp" />
+        app:layout_anchor="@id/iv"
+        app:layout_behavior="android.of.road.com.behavior.TranslucentBehavior"
+        app:navigationIcon="@drawable/ic_arrow_back_black_24dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="TranslucentBehavior"
+            android:textColor="#fff" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <!--layout_anchor 加上这个 才能调用-->
 
 </android.support.design.widget.CoordinatorLayout>
