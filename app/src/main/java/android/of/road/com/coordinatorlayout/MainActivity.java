@@ -69,4 +69,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, TransferHeaderActivity.class));
 
     }
+
+    public void apayBehavior(View view) {
+        startActivity(new Intent(this, AlipayBehaviorActivity.class));
+    }
 }
