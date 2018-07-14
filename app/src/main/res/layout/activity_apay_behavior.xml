@@ -43,7 +43,7 @@
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:src="@mipmap/default_header"
+        android:src="@mipmap/icon_scanf"
         android:tag="0"
         app:layout_anchor="@id/iv"
         app:layout_behavior="android.of.road.com.behavior.AlipayBehavior" />
@@ -51,7 +51,7 @@
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:src="@mipmap/default_header"
+        android:src="@mipmap/icon_pay"
         android:tag="1"
         app:layout_anchor="@id/iv"
         app:layout_behavior="android.of.road.com.behavior.AlipayBehavior" />
@@ -59,7 +59,7 @@
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:src="@mipmap/default_header"
+        android:src="@mipmap/icon_shoupay"
         android:tag="2"
         app:layout_anchor="@id/iv"
         app:layout_behavior="android.of.road.com.behavior.AlipayBehavior" />
@@ -67,7 +67,7 @@
     <ImageView
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:src="@mipmap/default_header"
+        android:src="@mipmap/icon_card"
         android:tag="3"
         app:layout_anchor="@id/iv"
         app:layout_behavior="android.of.road.com.behavior.AlipayBehavior" />
