@@ -22,7 +22,7 @@
         <activity android:name=".TranslucentBehaviorActivity" />
         <activity android:name=".BehaviorOverlapTopActivity" />
         <activity android:name=".TransferHeaderActivity" />
-        <activity android:name=".AlipayBehaviorActivity"></activity>
+        <activity android:name=".AlipayBehaviorActivity"/>
     </application>
 
 </manifest>
