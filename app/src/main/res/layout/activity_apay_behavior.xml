@@ -12,7 +12,7 @@
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
-            android:layout_height="185dp"
+            android:layout_height="135dp"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <ImageView
@@ -41,16 +41,16 @@
 
 
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:src="@mipmap/icon_scanf"
         android:tag="0"
         app:layout_anchor="@id/iv"
         app:layout_behavior="android.of.road.com.behavior.AlipayBehavior" />
 
     <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
         android:src="@mipmap/icon_pay"
         android:tag="1"
         app:layout_anchor="@id/iv"
