@@ -94,8 +94,7 @@ public class AlipayBehavior extends CoordinatorLayout.Behavior<ImageView> {
             //初始化X轴最小坐标轴
 
             // 最小宽度乘以下标 加上间距  最小宽度为0.6  goto 80 line
-            mMixX = (int) ((child.getWidth() * 0.4f + mSpace) * position) + mLeftSpace/*返回按钮的宽度*/;
-            mDiffX = mMaxX - mMixX;
+            mDiffX = (int) (mMaxX - (child.getWidth() * 0.4f + mSpace) * position) + mLeftSpace/*返回按钮的宽度*/;
         }
 
         //滑动的Y轴与高度的百分百比例值
