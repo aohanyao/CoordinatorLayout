@@ -41,24 +41,62 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="170dp"
-        app:cardCornerRadius="4dp"
+        android:layout_height="150dp"
+        app:cardCornerRadius="2dp"
         app:cardElevation="0dp"
         app:layout_anchor="@id/fl_scroll"
         app:layout_behavior="android.of.road.com.behavior.user.UserCardViewBehavior">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="horizontal"
+            android:layout_height="50dp"
             android:layout_gravity="bottom"
-            android:layout_height="50dp">
+            android:layout_marginBottom="20dp"
+            android:orientation="horizontal">
 
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:layout_height="match_parent">
+                android:gravity="center"
+                android:orientation="vertical">
 
-            </RelativeLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$6,000"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="for 12 sessions"
+                    android:textColor="#666666"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4.5km"
+                    android:textSize="15sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="away from you"
+                    android:textColor="#666666"
+                    android:textSize="12sp" />
+            </LinearLayout>
 
         </LinearLayout>
 

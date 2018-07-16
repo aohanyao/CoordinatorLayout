@@ -55,6 +55,15 @@ public class UserCardViewBehavior extends CoordinatorLayout.Behavior<CardView> {
             child.setLayoutParams(layoutParams);
         }
 
+        //获取的子view
+        View childView = child.getChildAt(0);
+
+        // 透明度渐变不是那么理想
+        float alpha = percent*2;
+        if (alpha > 0.5) {
+            alpha = 1;
+        }
+        childView.setAlpha(1 - alpha);
 
         return true;
     }
