@@ -41,7 +41,7 @@
         android:background="@color/colorPrimary"
         app:layout_anchor="@id/iv"
         app:layout_behavior="android.of.road.com.behavior.TranslucentBehavior"
-        app:navigationIcon="@drawable/ic_arrow_back_black_24dp">
+        app:navigationIcon="@drawable/ic_arrow_back_white_24dp">
 
         <TextView
             android:layout_width="wrap_content"

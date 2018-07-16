@@ -73,4 +73,8 @@ public class MainActivity extends AppCompatActivity {
     public void apayBehavior(View view) {
         startActivity(new Intent(this, AlipayBehaviorActivity.class));
     }
+
+    public void serInfo(View view) {
+        startActivity(new Intent(this, UserInfoActivity.class));
+    }
 }

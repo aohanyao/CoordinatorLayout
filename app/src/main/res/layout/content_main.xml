@@ -66,4 +66,18 @@
         android:layout_height="1dp"
         android:background="#dedede" />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="?android:selectableItemBackground"
+        android:gravity="center_vertical"
+        android:onClick="serInfo"
+        android:paddingLeft="16dp"
+        android:text="UserInfo" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#dedede" />
+
 </LinearLayout>
