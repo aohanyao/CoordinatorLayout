@@ -46,6 +46,7 @@ public class UserCardViewBehavior extends CoordinatorLayout.Behavior<CardView> {
         ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) child.getLayoutParams();
 
         if (layoutParams != null) {
+            //TODO 这里有点抖动
             layoutParams.leftMargin = (int) (mMargin - (mMargin * percent));
             layoutParams.rightMargin = (int) (mMargin - (mMargin * percent));
 
@@ -59,7 +60,7 @@ public class UserCardViewBehavior extends CoordinatorLayout.Behavior<CardView> {
         View childView = child.getChildAt(0);
 
         // 透明度渐变不是那么理想
-        float alpha = percent*2;
+        float alpha = percent * 2;
         if (alpha > 0.5) {
             alpha = 1;
         }

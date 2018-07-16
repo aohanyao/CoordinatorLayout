@@ -155,5 +155,15 @@
 
     </RelativeLayout>
 
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tlUserInfo"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="#fff"
+        app:layout_anchor="@id/fl_scroll"
+        app:layout_behavior="android.of.road.com.behavior.user.UserTabLayoutBehavior"
+        app:tabIndicatorColor="#3a84f7"
+        app:tabSelectedTextColor="#3a84f7" />
+
 
 </android.support.design.widget.CoordinatorLayout>
