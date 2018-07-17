@@ -13,7 +13,8 @@ public class UserCardViewBehavior extends CoordinatorLayout.Behavior<CardView> {
     private int mMaxY = 0;
     private int mMargin = 0;
     private int mViewHeight = 0;
-
+    private float mViewWidth = 0;
+    private float mDiffWith = 0;
 
     public UserCardViewBehavior(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -30,6 +31,8 @@ public class UserCardViewBehavior extends CoordinatorLayout.Behavior<CardView> {
             mMaxY = DensityUtils.dp2px(parent.getContext(), 85);
             mMargin = DensityUtils.dp2px(parent.getContext(), 20);
             mViewHeight = child.getHeight();
+            mViewWidth = (int) (child.getWidth() * 0.9f);
+            mDiffWith = (int) (child.getWidth() * 0.1f);
         }
 
 
@@ -37,6 +40,9 @@ public class UserCardViewBehavior extends CoordinatorLayout.Behavior<CardView> {
         float percent = dependency.getY() / dependency.getHeight();
         if (percent >= 1) {
             percent = 1f;
+        }
+        if (percent <= 0) {
+            percent = 0f;
         }
 
         child.setY(mMaxY - percent * mMaxY);
@@ -47,13 +53,19 @@ public class UserCardViewBehavior extends CoordinatorLayout.Behavior<CardView> {
 
         if (layoutParams != null) {
             //TODO 这里有点抖动
-            layoutParams.leftMargin = (int) (mMargin - (mMargin * percent));
-            layoutParams.rightMargin = (int) (mMargin - (mMargin * percent));
+            // 使用间距的时候会有点问题，更改为 修改宽度和X轴
+            // 如果他是1
+            float mOffsetWidth = mDiffWith * percent;
+            layoutParams.width = (int) (mViewWidth + mOffsetWidth);
+            try {
+                child.setX((mDiffWith / 2) - mOffsetWidth / 2);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
-            // 更改
+//
+//            // 更改
             layoutParams.height = (int) (mViewHeight - mViewHeight * percent);
-
-            child.setLayoutParams(layoutParams);
         }
 
         //获取的子view
