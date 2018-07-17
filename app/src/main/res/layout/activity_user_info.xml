@@ -102,16 +102,6 @@
 
     </android.support.v7.widget.CardView>
 
-    <!--两个操作按钮-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        android:layout_height="48dp">
-
-
-
-    </LinearLayout>
-
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -175,6 +165,65 @@
         app:layout_behavior="android.of.road.com.behavior.user.UserTabLayoutBehavior"
         app:tabIndicatorColor="#3a84f7"
         app:tabSelectedTextColor="#3a84f7" />
+
+
+    <!--两个操作按钮-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:layout_behavior="android.of.road.com.behavior.user.UserActionBehavior"
+        android:orientation="horizontal"
+        app:layout_anchor="@id/fl_scroll">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="-1dp"
+            android:layout_weight="1"
+            android:background="@drawable/background_user_left_action"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_call_24dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:text="CALL"
+                android:textColor="#3A84F7" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="-1dp"
+            android:layout_weight="1"
+            android:background="@drawable/background_user_right_action"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_message_24dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:text="MESSAGE"
+                android:textColor="#3A84F7" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 
 
 </android.support.design.widget.CoordinatorLayout>
