@@ -1,6 +1,7 @@
 package android.of.road.com.coordinatorlayout;
 
 import android.content.Intent;
+import android.of.road.com.course1.Course1MainActivity;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -76,5 +77,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void serInfo(View view) {
         startActivity(new Intent(this, UserInfoActivity.class));
+    }
+
+    public void course1Main(View view) {
+        startActivity(new Intent(this, Course1MainActivity.class));
+
     }
 }

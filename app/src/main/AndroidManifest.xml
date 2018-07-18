@@ -23,7 +23,9 @@
         <activity android:name=".BehaviorOverlapTopActivity" />
         <activity android:name=".TransferHeaderActivity" />
         <activity android:name=".AlipayBehaviorActivity" />
-        <activity android:name=".UserInfoActivity"></activity>
+        <activity android:name=".UserInfoActivity" />
+        <activity android:name="android.of.road.com.course1.CreateCoordinatorLayoutActivity" />
+        <activity android:name="android.of.road.com.course1.Course1MainActivity"></activity>
     </application>
 
 </manifest>

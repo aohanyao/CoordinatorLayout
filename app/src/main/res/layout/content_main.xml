@@ -11,6 +11,13 @@
     tools:showIn="@layout/activity_main">
 
     <TextView
+        android:onClick="course1Main"
+        android:text="系列一"
+        style="@style/TextItemStyle" />
+
+    <include layout="@layout/line_item_layout" />
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:background="?android:selectableItemBackground"
