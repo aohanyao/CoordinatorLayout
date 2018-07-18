@@ -28,12 +28,16 @@ public class UserActionBehavior extends CoordinatorLayout.Behavior<LinearLayout>
 
         if (mViewWidth == 0) {
             mViewWidth = (float) (dependency.getWidth() * 0.903);
+            dependency.getWidth();
         }
 
 
         ViewGroup.LayoutParams layoutParams = child.getLayoutParams();
         if (layoutParams != null) {
+            //宽度 跟随滑动进行减少
             layoutParams.width = (int) mViewWidth;
+            //X轴 跟随滑动进行加大
+            child.setX(dependency.getWidth() * 0.048f);
             child.setLayoutParams(layoutParams);
         }
 
@@ -59,8 +63,6 @@ public class UserActionBehavior extends CoordinatorLayout.Behavior<LinearLayout>
         if (child.getAlpha() > 0.4) {
 //            child.setVisibility(View.VISIBLE);
         }
-        //X轴
-        child.setX(dependency.getWidth() * 0.048f);
 
 
         int mCardViewHeight = DensityUtils.dp2px(parent.getContext(), 235);

@@ -8,67 +8,103 @@
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:elevation="2dp">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="135dp"
+            android:background="@color/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
-            <ImageView
-                android:id="@+id/iv"
+            <FrameLayout
+                android:id="@+id/flScroll"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@mipmap/design"
                 app:layout_collapseMode="parallax"
-                app:layout_collapseParallaxMultiplier="0.9" />
+                app:layout_collapseParallaxMultiplier="0.9">
 
+            </FrameLayout>
+
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@color/colorPrimary"
+                app:layout_anchor="@id/flScroll"
+                app:layout_behavior="android.of.road.com.behavior.AlphaHeaderLayoutBehavior"
+                app:layout_collapseMode="pin"
+                app:title="" />
 
         </android.support.design.widget.CollapsingToolbarLayout>
-
-
     </android.support.design.widget.AppBarLayout>
 
 
     <include layout="@layout/layout_apay_content" />
 
 
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_anchor="@id/iv"
-        app:layout_behavior="android.of.road.com.behavior.TranslucentBehavior" />
-
-
-    <ImageView
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:src="@mipmap/icon_scanf"
+    <LinearLayout
+        style="@style/ServerShortcutMenuLineStyle"
+        android:gravity="center"
         android:tag="0"
-        app:layout_anchor="@id/iv"
-        app:layout_behavior="android.of.road.com.behavior.AlipayBehavior" />
+        app:layout_anchor="@id/flScroll"
+        app:layout_behavior="android.of.road.com.behavior.AlipayBehavior">
 
-    <ImageView
-        android:layout_width="38dp"
-        android:layout_height="38dp"
-        android:src="@mipmap/icon_pay"
+        <ImageView
+            style="@style/ServerShortcutMenuImageStyle"
+            android:src="@mipmap/icon_server_app_door" />
+
+        <TextView
+            style="@style/ServerShortcutMenuTextStyle"
+            android:text="门禁" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/ServerShortcutMenuLineStyle"
+        android:gravity="center"
         android:tag="1"
-        app:layout_anchor="@id/iv"
-        app:layout_behavior="android.of.road.com.behavior.AlipayBehavior" />
+        app:layout_anchor="@id/flScroll"
+        app:layout_behavior="android.of.road.com.behavior.AlipayBehavior">
 
-    <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@mipmap/icon_shoupay"
+        <ImageView
+            style="@style/ServerShortcutMenuImageStyle"
+            android:src="@mipmap/icon_server_app_scanf" />
+
+        <TextView
+            style="@style/ServerShortcutMenuTextStyle"
+            android:text="扫一扫" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/ServerShortcutMenuLineStyle"
+        android:gravity="center"
         android:tag="2"
-        app:layout_anchor="@id/iv"
-        app:layout_behavior="android.of.road.com.behavior.AlipayBehavior" />
+        app:layout_anchor="@id/flScroll"
+        app:layout_behavior="android.of.road.com.behavior.AlipayBehavior">
 
-    <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@mipmap/icon_card"
+        <ImageView
+            style="@style/ServerShortcutMenuImageStyle"
+            android:src="@mipmap/icon_server_app_card" />
+
+        <TextView
+            style="@style/ServerShortcutMenuTextStyle"
+            android:text="停车月卡" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/ServerShortcutMenuLineStyle"
+        android:gravity="center"
         android:tag="3"
-        app:layout_anchor="@id/iv"
-        app:layout_behavior="android.of.road.com.behavior.AlipayBehavior" />
+        app:layout_anchor="@id/flScroll"
+        app:layout_behavior="android.of.road.com.behavior.AlipayBehavior">
+
+        <ImageView
+            style="@style/ServerShortcutMenuImageStyle"
+            android:src="@mipmap/icon_server_app_wallet" />
+
+        <TextView
+            style="@style/ServerShortcutMenuTextStyle"
+            android:text="钱包" />
+    </LinearLayout>
+
+
 </android.support.design.widget.CoordinatorLayout>

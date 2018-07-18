@@ -52,7 +52,6 @@ public class UserCardViewBehavior extends CoordinatorLayout.Behavior<CardView> {
         ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) child.getLayoutParams();
 
         if (layoutParams != null) {
-            //TODO 这里有点抖动
             // 使用间距的时候会有点问题，更改为 修改宽度和X轴
             // 如果他是1
             float mOffsetWidth = mDiffWith * percent;

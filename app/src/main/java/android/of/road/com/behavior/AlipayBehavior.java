@@ -1,12 +1,13 @@
 package android.of.road.com.behavior;
 
 import android.content.Context;
+import android.of.road.com.behavior.utils.DensityUtils;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 /**
  * Created by jc on 2018-07-13.
@@ -14,48 +15,30 @@ import android.widget.ImageView;
  * Description:
  * ChangeLog:
  */
-public class AlipayBehavior extends CoordinatorLayout.Behavior<ImageView> {
+public class AlipayBehavior extends CoordinatorLayout.Behavior<LinearLayout> {
 
     /**
-     * 最大化的时候X轴的坐标轴
+     * 下标
      */
-    private int mMaxX = 0;
+    private int mPosition = -1;
     /**
-     * 最小化的时候X轴的坐标轴
+     * X轴坐标
      */
-    private int mMixX = 0;
-    private int mDiffX = 0;
-    /**
-     * 最大化的时候Y轴的坐标轴
-     */
-    private int mMaxY = 0;
+    private float mViewMaxX = 0;
 
     /**
-     * 每个按钮之间的间距
+     * View的宽度
      */
-    private int mSpace = 40;
+    private int mViewWidth;
+    /**
+     * View的高度
+     */
+    private int mViewHeight;
 
     /**
-     * 左边第一个按钮的间距
+     * Y轴的最大高度
      */
-    private int mLeftSpace = 40;
-
-    /**
-     * 依赖View的宽度
-     */
-    private int mViewWidth = 0;
-    /**
-     * 依赖View的高度
-     */
-    private int mViewHeight = 0;
-    /**
-     * ImageView最大宽度和最小宽度的差值
-     */
-    private float mDifferenceWidth = 0;
-    /**
-     * ImageView最大高度和最高宽度的差值
-     */
-    private float mDifferenceHeight = 0;
+    private int mViewMaxY = 0;
 
 
     public AlipayBehavior(Context context, AttributeSet attrs) {
@@ -63,65 +46,65 @@ public class AlipayBehavior extends CoordinatorLayout.Behavior<ImageView> {
     }
 
     @Override
-    public boolean layoutDependsOn(CoordinatorLayout parent, ImageView child, View dependency) {
+    public boolean layoutDependsOn(CoordinatorLayout parent, LinearLayout child, View dependency) {
         return dependency instanceof Toolbar;
     }
 
     @Override
-    public boolean onDependentViewChanged(CoordinatorLayout parent, ImageView child, View dependency) {
-        //初始化宽度
-        if (mViewWidth == 0 || mViewHeight == 0) {
-            mViewWidth = child.getWidth();
+    public boolean onDependentViewChanged(CoordinatorLayout parent, LinearLayout child, View dependency) {
+        if (mPosition == -1) {//未初始化
+            mPosition = Integer.parseInt((String) child.getTag());
+            //计算出每个View的宽度
+            mViewWidth = dependency.getWidth() / 4/*四个View*/;
+            //高度
             mViewHeight = child.getHeight();
+            //重新规划 宽度
+            ViewGroup.LayoutParams layoutParams = child.getLayoutParams();
+            if (layoutParams != null) {
+                layoutParams.width = mViewWidth;
+            }
+            child.setLayoutParams(layoutParams);
+
+            // 总宽度 除以四。得出每一个子View的宽度，居中为
+            //计算居中X轴
+            mViewMaxX = mViewWidth * mPosition;
+            //计算Y轴
+            mViewMaxY = (int) (child.getY() + DensityUtils.dp2px(parent.getContext(), 50f));
         }
 
+        //计算百分比  当前的百分比其实是没有减去状态栏的
+        float mPercent = dependency.getY() / (dependency.getHeight()/* - ScreenUtils.getStatusHeight(parent.getContext())*/);
+        if (mPercent >= 1f)
+            mPercent = 1;
 
-        //计算差值
-        if (mDifferenceWidth == 0) {
-            mDifferenceWidth = child.getWidth() * 0.6f;
-            mDifferenceHeight = child.getMaxHeight() * 0.6f;
-        }
-
-        //取出view中的tag下标
-        int position = Integer.parseInt((String) child.getTag());
-
-        // 平均宽度
-        int averageWidth = dependency.getWidth() / 4/*总共放了4个view，所以分成了四份*/;
-        if (mMaxX == 0) {
-            //初始化X最大轴坐标
-            // 总宽度 除以4份 除以二
-            mMaxX = averageWidth * position + averageWidth / 2 - child.getWidth() / 2;
-            //初始化X轴最小坐标轴
-
-            // 最小宽度乘以下标 加上间距  最小宽度为0.6  goto 80 line
-            mDiffX = (int) (mMaxX - (child.getWidth() * 0.4f + mSpace) * position) + mLeftSpace/*返回按钮的宽度*/;
-        }
-
-        //滑动的Y轴与高度的百分百比例值
-        float percent = dependency.getY() / dependency.getHeight();
-        if (percent >= 1)
-            percent = 1;
-        //初始化Y轴
-        if (mMaxY == 0) {
-            mMaxY = dependency.getHeight() / 2 - child.getHeight() / 2;
-        }
-        // 更改大小  宽度
+        // 动态更改 View的高度
         ViewGroup.LayoutParams layoutParams = child.getLayoutParams();
-        //布局参数不为空
         if (layoutParams != null) {
-            //计算百分百的差值
-            layoutParams.height = (int) (mViewHeight - mDifferenceWidth * percent);
-            layoutParams.width = (int) (mViewHeight - mDifferenceHeight * percent);
+            layoutParams.height = (int) (mViewHeight - (mViewHeight /** 0.8f*/) * mPercent);
+            layoutParams.width = (int) (mViewWidth - (mViewWidth * mPercent));
             child.setLayoutParams(layoutParams);
         }
 
+        //更改 内部文字的透明底
+        View mTextTitleView = child.getChildAt(1);
+        if (mTextTitleView != null) {
+            mTextTitleView.setAlpha(1 - (mPercent > 0.4 ? 1 : mPercent));
+        }
 
-        // X轴坐标，最终会减少到 开始的X轴坐标，这样是不正确的，我需要让他
-        // 减少到最终的最终的X轴坐标，也就是说我需要再最开始的时候将开场和
-        // 结束的X轴坐标都计算出来
-        // TODO 剩余抖动的问题
-        child.setX(mMaxX - mDiffX * percent);
-        child.setY(mMaxY - mMaxY * percent + mSpace);
+        // 更改内部imageView的大小
+        View mImageTitleView = child.getChildAt(0);
+        if (mImageTitleView != null) {
+            mImageTitleView.setScaleX(1 - (0.4f * mPercent));
+            mImageTitleView.setScaleY(1 - (0.4f * mPercent));
+        }
+
+
+        //设置X轴坐标//没有计算状态栏的情况之下，滑动并不是完整的
+        child.setX(mViewMaxX - (mViewMaxX - 50/*左边的距离*/) * mPercent);
+
+
+        // 设置Y轴坐标
+        child.setY(mViewMaxY - (mViewMaxY * 1.4f) * mPercent);
 
 
         return true;
