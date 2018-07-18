@@ -6,6 +6,7 @@ import android.of.road.com.coordinatorlayout.R;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -47,15 +48,22 @@ public class UserTranslucentBehavior extends CoordinatorLayout.Behavior<Toolbar>
         if (percent >= 1) {
             percent = 1f;
         }
-        if (percent>0.4){
+        if (percent > 0.4) {
             child.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
-        }else {
+        } else {
             child.setNavigationIcon(R.drawable.ic_arrow_back_white_24dp);
         }
 
 
+        // 到底顶部了，再计算透明度
+        if (percent < 0.9) {
+            percent = 0;
+        }
         // 计算alpha通道值
         float alpha = percent * 255;
+        // 255 不透明  0 透明
+        // 展开的时候的比例是0
+        Log.e("onDependentViewChanged", "percent:" + percent + "   alpha:" + alpha);
 
 
         //设置背景颜色
