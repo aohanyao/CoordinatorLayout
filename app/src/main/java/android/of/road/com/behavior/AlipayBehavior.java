@@ -104,7 +104,7 @@ public class AlipayBehavior extends CoordinatorLayout.Behavior<LinearLayout> {
 
 
         // 设置Y轴坐标
-        child.setY(mViewMaxY - mViewMaxY * mPercent);
+        child.setY(mViewMaxY - (mViewMaxY * 1.4f) * mPercent);
 
 
         return true;
