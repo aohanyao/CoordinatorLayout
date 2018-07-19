@@ -25,7 +25,8 @@
         <activity android:name=".AlipayBehaviorActivity" />
         <activity android:name=".UserInfoActivity" />
         <activity android:name="android.of.road.com.course1.CreateCoordinatorLayoutActivity" />
-        <activity android:name="android.of.road.com.course1.Course1MainActivity"></activity>
+        <activity android:name="android.of.road.com.course1.Course1MainActivity" />
+        <activity android:name="android.of.road.com.course1.CreateAppBarLayoutActivity"></activity>
     </application>
 
 </manifest>

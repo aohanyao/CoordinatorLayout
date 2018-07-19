@@ -25,6 +25,16 @@ public class Course1MainActivity extends AppCompatActivity {
         openActivity(CreateCoordinatorLayoutActivity.class);
     }
 
+    /**
+     * 第二步
+     *
+     * @param view
+     */
+    public void createAppBarLayout(View view) {
+        //打开第二个页面
+        openActivity(CreateAppBarLayoutActivity.class);
+    }
+
     public void openActivity(Class activity) {
         startActivity(new Intent(this, activity));
 
