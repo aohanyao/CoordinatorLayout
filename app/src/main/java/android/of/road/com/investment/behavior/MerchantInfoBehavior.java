@@ -7,6 +7,7 @@ import android.support.design.widget.CoordinatorLayout;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -18,7 +19,8 @@ import android.widget.TextView;
  */
 public class MerchantInfoBehavior extends CoordinatorLayout.Behavior<View> {
 
-    private TextView mImageView;
+    private ImageView mImageView;
+    //    private TextView mImageView;
     private int mOffset = -1;
     private int mViewOffsetHeight = -1;
 
@@ -45,6 +47,15 @@ public class MerchantInfoBehavior extends CoordinatorLayout.Behavior<View> {
      */
     private int mTvMerchantRecordHeight = -1;
 
+    /**
+     * 商家推荐 文字
+     */
+    private View mMerchantText;
+    /**
+     * 商家推荐 高度
+     */
+    private int mMerchantTextHeight = -1;
+
     public MerchantInfoBehavior(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
@@ -61,9 +72,11 @@ public class MerchantInfoBehavior extends CoordinatorLayout.Behavior<View> {
             llCard = parent.findViewById(R.id.llCard);
             llMerchantRoot = parent.findViewById(R.id.llMerchantRoot);
             mTvMerchantRecord = parent.findViewById(R.id.mTvMerchantRecord);
+            mMerchantText = parent.findViewById(R.id.mMerchantText);
 
             mCardHeight = llCard.getHeight();
             mTvMerchantRecordHeight = mTvMerchantRecord.getHeight();
+            mMerchantTextHeight = mMerchantText.getHeight();
         }
 
 
@@ -78,7 +91,7 @@ public class MerchantInfoBehavior extends CoordinatorLayout.Behavior<View> {
             mTopImagePre = 1f;
         }
 
-        mImageView.setText("" + mTopImagePre);
+//        mImageView.setText("" + mTopImagePre);
         // 移动Y轴的距离
         llMerchantRoot.setY(-(mViewOffsetHeight * mTopImagePre));
 
@@ -120,7 +133,8 @@ public class MerchantInfoBehavior extends CoordinatorLayout.Behavior<View> {
             mTvMerchantRecord.setLayoutParams(layoutParams1);
 
 
-            // 商家推荐  这几个文字
+            // 商家推荐  这几个文字  当 推荐的商品完全关闭以后，进行打开
+            
 
         }
 

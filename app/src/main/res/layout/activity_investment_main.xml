@@ -44,15 +44,22 @@
         app:layout_anchor="@id/rl_ancor"
         app:layout_behavior="android.of.road.com.investment.behavior.MerchantInfoBehavior">
 
-        <TextView
-            android:id="@+id/vImage"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="166dp"
-            android:background="#f60"
-            android:gravity="center"
-            android:text="图片"
-            android:textColor="#fff"
-            android:textSize="20sp" />
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/vImage"
+                android:layout_width="match_parent"
+                android:layout_height="166dp"
+                android:background="#f60"
+                android:gravity="center"
+                android:src="@mipmap/design"
+                android:text="图片"
+                android:textColor="#fff"
+                android:textSize="20sp" />
+
+        </FrameLayout>
 
         <LinearLayout
             android:id="@+id/llCard"
@@ -61,10 +68,32 @@
             android:background="#03a4f9"
             android:orientation="horizontal">
 
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="优惠券1"
+                android:textColor="#fff" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="优惠券2"
+                android:textColor="#fff" />
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="优惠券3"
+                android:textColor="#fff" />
+
         </LinearLayout>
 
 
         <TextView
+            android:id="@+id/mMerchantText"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:background="#fff"
