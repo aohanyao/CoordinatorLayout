@@ -134,7 +134,7 @@ public class MerchantInfoBehavior extends CoordinatorLayout.Behavior<View> {
 
 
             // 商家推荐  这几个文字  当 推荐的商品完全关闭以后，进行打开
-            
+
 
         }
 

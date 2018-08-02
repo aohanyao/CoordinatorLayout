@@ -115,11 +115,6 @@
     </LinearLayout>
     <!--商家信息 end-->
 
-    <!--推荐 start-->
-    <!-- <LinearLayout
-         android:layout_width="match_parent"
-         android:layout_height=""></LinearLayout>-->
-    <!--推荐 end-->
 
 
     <android.support.v7.widget.Toolbar
@@ -127,7 +122,6 @@
         android:layout_width="match_parent"
         android:layout_height="72dp"
         android:background="#88000000"
-        android:elevation="5dp"
         android:paddingTop="8dp"
         app:layout_collapseMode="pin"
         app:navigationIcon="@drawable/ic_arrow_back_white_24dp"
