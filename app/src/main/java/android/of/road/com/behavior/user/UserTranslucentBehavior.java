@@ -8,7 +8,6 @@ import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
-import android.widget.TextView;
 
 /**
  * Created by jc on 2018-07-12.
@@ -26,7 +25,7 @@ public class UserTranslucentBehavior extends CoordinatorLayout.Behavior<Toolbar>
 
     @Override
     public boolean layoutDependsOn(CoordinatorLayout parent, Toolbar child, View dependency) {
-        return dependency instanceof TextView;
+        return super.layoutDependsOn(parent, child, dependency);
     }
 
     /**

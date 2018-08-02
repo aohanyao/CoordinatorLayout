@@ -11,12 +11,10 @@
     tools:showIn="@layout/activity_user_info">
 
 
-
     <android.support.v4.view.ViewPager
         android:id="@+id/vpUserInfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_weight="1"
         android:background="#eee" />
 

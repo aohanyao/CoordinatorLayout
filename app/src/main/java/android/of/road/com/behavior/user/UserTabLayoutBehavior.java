@@ -33,7 +33,7 @@ public class UserTabLayoutBehavior extends CoordinatorLayout.Behavior<TabLayout>
 
         if (mMaxY == 0) {
             mMaxY = dependency.getBottom() - child.getHeight();
-            mDiffY = (int) (mMaxY - child.getHeight() * 0.6f);
+            mDiffY = (int) (mMaxY - child.getHeight() * 0.4f);
         }
         //todo 遗留tablayout悬停的问题
 
