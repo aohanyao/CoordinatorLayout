@@ -86,5 +86,18 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#dedede" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="?android:selectableItemBackground"
+        android:gravity="center_vertical"
+        android:onClick="elme"
+        android:paddingLeft="16dp"
+        android:text="饿了么" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#dedede" />
 
 </LinearLayout>

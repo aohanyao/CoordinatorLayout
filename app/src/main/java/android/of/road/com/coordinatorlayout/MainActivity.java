@@ -2,14 +2,15 @@ package android.of.road.com.coordinatorlayout;
 
 import android.content.Intent;
 import android.of.road.com.course1.Course1MainActivity;
+import android.of.road.com.investment.InvestmentMainActivity;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -83,4 +84,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, Course1MainActivity.class));
 
     }
+
+    public void elme(View view) {
+        startActivity(new Intent(this, InvestmentMainActivity.class));
+    }
+
 }
