@@ -38,6 +38,7 @@
         app:layout_anchor="@id/iv"
         app:layout_behavior="android.of.road.com.behavior.TranslucentBehavior"
         app:navigationIcon="@drawable/ic_arrow_back_white_24dp" />
+    <!--layout_anchor iv 才起作用-->
 
 
     <ImageView
@@ -48,7 +49,5 @@
         android:src="@mipmap/default_header"
         app:layout_anchor="@id/iv"
         app:layout_behavior="android.of.road.com.behavior.TransferHeaderBehavior" />
-
-    <!--layout_anchor iv 才起作用-->
 
 </android.support.design.widget.CoordinatorLayout>

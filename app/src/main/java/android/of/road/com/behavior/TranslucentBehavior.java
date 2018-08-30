@@ -16,6 +16,7 @@ import android.widget.TextView;
  */
 public class TranslucentBehavior extends CoordinatorLayout.Behavior<Toolbar> {
 
+    /**标题栏的高度*/
     private int mToolbarHeight = 0;
 
     public TranslucentBehavior(Context context, AttributeSet attrs) {

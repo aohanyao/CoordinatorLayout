@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -16,7 +15,13 @@ import android.widget.ImageView;
  */
 public class TransferHeaderBehavior extends CoordinatorLayout.Behavior<ImageView> {
 
+    /**
+     * 处于中心时候原始X轴
+     */
     private int mOriginalHeaderX = 0;
+    /**
+     * 处于中心时候原始Y轴
+     */
     private int mOriginalHeaderY = 0;
 
 
@@ -31,15 +36,14 @@ public class TransferHeaderBehavior extends CoordinatorLayout.Behavior<ImageView
 
     @Override
     public boolean onDependentViewChanged(CoordinatorLayout parent, ImageView child, View dependency) {
+        // 计算X轴坐标
         if (mOriginalHeaderX == 0) {
             this.mOriginalHeaderX = dependency.getWidth() / 2 - child.getWidth() / 2;
         }
-
+        // 计算Y轴坐标
         if (mOriginalHeaderY == 0) {
             mOriginalHeaderY = dependency.getHeight() - child.getHeight();
         }
-
-
         //X轴百分比
         float mPercentX = dependency.getY() / mOriginalHeaderX;
         if (mPercentX >= 1) {
@@ -50,7 +54,6 @@ public class TransferHeaderBehavior extends CoordinatorLayout.Behavior<ImageView
         if (mPercentY >= 1) {
             mPercentY = 1;
         }
-        Log.e("onDependentViewChanged", "mPercentX:" + mPercentX + "  mPercentY:" + mPercentY);
 
         float x = mOriginalHeaderX - mOriginalHeaderX * mPercentX;
         if (x <= child.getWidth()) {
@@ -60,8 +63,6 @@ public class TransferHeaderBehavior extends CoordinatorLayout.Behavior<ImageView
 
         child.setX(x);
         child.setY(mOriginalHeaderY - mOriginalHeaderY * mPercentY);
-
-
         return true;
     }
 }
