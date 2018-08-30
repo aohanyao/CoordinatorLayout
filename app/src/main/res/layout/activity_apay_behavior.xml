@@ -17,14 +17,14 @@
             android:background="@color/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
+            <!--用来做背景坐标-->
             <FrameLayout
                 android:id="@+id/flScroll"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layout_collapseMode="parallax"
-                app:layout_collapseParallaxMultiplier="0.9">
+                app:layout_collapseParallaxMultiplier="0.9" />
 
-            </FrameLayout>
 
             <android.support.v7.widget.Toolbar
                 android:layout_width="match_parent"
